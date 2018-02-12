@@ -18,6 +18,11 @@
 //    we force a non-overlapping, non-auto-hiding scrollbar to counteract.
 // 6. Change the default tap highlight to be completely transparent in iOS.
 
+// 盒模型部分
+// 默认情况下 box-sizing: content-box; bootstrap 重置盒模型为 border-box 的原因如下：
+// 栅格系统的每一列的宽度都是根据百分比计算得到的($size / $columns), 如果使用默认的 content-box，如果有的列加上padding 或者 border，布局则会直接乱掉。
+// 使用 border-box 之后，列的 padding 和 border 变化产生的影响范围 col 的宽度以内了。
+// 基本生等分布局的实现都离不开这一设置。
 *,
 *::before,
 *::after {
