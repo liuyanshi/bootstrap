@@ -1,10 +1,12 @@
 // Container widths
 //
 // Set the container width, and override it for fixed navbars in media queries.
+// 设置 container 的固定宽度
 
 @if $enable-grid-classes {
   .container {
     @include make-container();
+    // 对于不同的屏幕尺寸，通过媒体查询来定义每个 container 的最大宽度
     @include make-container-max-widths();
   }
 }
@@ -13,9 +15,11 @@
 //
 // Utilizes the mixin meant for fixed width containers, but with 100% width for
 // fluid, full width layouts.
+// 流式布局的 container 是自适应的
 
 @if $enable-grid-classes {
   .container-fluid {
+    // 利用 mixin 的方法来设置流式布局
     @include make-container();
   }
 }
@@ -26,6 +30,7 @@
 
 @if $enable-grid-classes {
   .row {
+    // 定义 row 并且清除列与列之间的浮动
     @include make-row();
   }
 
