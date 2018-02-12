@@ -1,7 +1,11 @@
+// Thanks to https://github.com/jiangshanmeta/jiangshanmeta.github.io/issues/4
+//
 /// Grid system
 //
 // Generate semantic grid columns with these mixins.
-
+// 移动优先，默认的都是小屏下的样式
+// container 和 container-fluid 在小屏下的行为是一致的
+// 但是在 pad 屏或者更大的屏幕下，前者表现为有固定宽度居中显示，而后者一直保持宽度 100%
 @mixin make-container() {
   width: 100%;
   padding-right: ($grid-gutter-width / 2);
@@ -10,7 +14,7 @@
   margin-left: auto;
 }
 
-
+// 再通过 media query 实现大屏下的样式
 // For each breakpoint, define the maximum width of the container in a media query
 @mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
   @each $breakpoint, $container-max-width in $max-widths {
@@ -23,6 +27,7 @@
 @mixin make-row() {
   display: flex;
   flex-wrap: wrap;
+  // 用于抵消 container 的 padding，以及 col 作为 container 的时候的 padding
   margin-right: ($grid-gutter-width / -2);
   margin-left: ($grid-gutter-width / -2);
 }
