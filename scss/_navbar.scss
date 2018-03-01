@@ -20,6 +20,8 @@
   display: flex;
   flex-wrap: wrap; // allow us to do the line break for collapsing content
   align-items: center;
+  // 将 brand 和 汉堡菜单 分开，将二者分别置于 navbar 的头和尾部
+  // 在 navbar-expand 中，在大屏展示的时候，会赋值为 flex-start 从而使页面导航(多个 a 标签、用户中心、消息中心) 在页面右边
   justify-content: space-between; // space out brand from logo
   padding: $navbar-padding-y $navbar-padding-x;
 
